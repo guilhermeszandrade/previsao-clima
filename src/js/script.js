@@ -1,20 +1,19 @@
-require("dotenv").config();
-const apiKey = process.env.OPENWEATHER_API_KEY;
-const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=&lang=pt_br";
+const apiUrl = "/api/weather?city="
 
 const barraDePesquisa = document.querySelector(".pesquisar input");
 const barraDePesquisaBtn = document.querySelector(".pesquisar button");
+
 async function checkWeather(cidade) {
-    const response = await fetch(apiUrl + cidade + `&appid=${apiKey}`);
-    var data = await response.json();
-    console.log(data);
+    const response = await fetch(apiUrl + encodeURIComponent(cidade));
+    const data = await response.json();
 
-    document.querySelector(".cidade").innerHTML = data.name;
-    document.querySelector(".temperatura").innerHTML = Math.round(data.main.temp) + "°c";
-    document.querySelector(".umidade").innerHTML = data.main.humidity + "%";
-    document.querySelector(".vento").innerHTML = data.wind.speed + "km/h";
+    document.querySelector(".cidade").textContent = data.cidade;
+    document.querySelector(".temperatura").textContent = Math.round(data.temperatura) + "°C";
+    document.querySelector(".umidade").textContent = data.umidade + "%";
+    // A API devolve o vento em m/s; multiplicar por 3.6 converte para km/h
+    document.querySelector(".vento").textContent = Math.round(data.vento * 3.6) + " km/h";
 }
-barraDePesquisaBtn.addEventListener("click", ()=>{
+barraDePesquisaBtn.addEventListener("click", () => {
     checkWeather(barraDePesquisa.value);
-})
-
+});
+ 
