@@ -16,4 +16,3 @@ async function checkWeather(cidade) {
 barraDePesquisaBtn.addEventListener("click", () => {
     checkWeather(barraDePesquisa.value);
 });
- 
