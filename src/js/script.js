@@ -5,14 +5,14 @@ const barraDePesquisaBtn = document.querySelector(".pesquisar button");
 const nuvemIcon = document.querySelector(".weather-icon");
 
 const icones = {
-  Clouds: "./src/img/clouds.png",
-  Rain: "./src/img/rain.png",
-  Thunderstorm: "./src/img/rain.png",
-  Clear: "./src/img/clear.png",
-  Drizzle: "./src/img/drizzle.png",
-  Mist: "./src/img/mist.png",
-  Haze: "./src/img/mist.png",
-  Fog: "./src/img/mist.png",
+    Clouds: "./src/img/clouds.png",
+    Rain: "./src/img/rain.png",
+    Thunderstorm: "./src/img/rain.png",
+    Clear: "./src/img/clear.png",
+    Drizzle: "./src/img/drizzle.png",
+    Mist: "./src/img/mist.png",
+    Haze: "./src/img/mist.png",
+    Fog: "./src/img/mist.png",
 };
 
 async function checkWeather(cidade) {
