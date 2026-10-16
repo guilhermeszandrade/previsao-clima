@@ -65,6 +65,7 @@ app.get("/api/weather", async (req, res) => {
 
     // Devolve só o que o front precisa
     res.json({
+
       cidade: data.name,
       pais: data.sys.country,
       temperatura: data.main.temp,
@@ -73,6 +74,9 @@ app.get("/api/weather", async (req, res) => {
       vento: data.wind.speed,
       descricao: data.weather[0].description,
       icone: data.weather[0].icon,
+      descricao: data.weather[0].description,
+      icone: data.weather[0].icon,
+      clima: data.weather[0].main,
     });
   } catch (err) {
     console.error("Falha ao chamar a OpenWeather:", err.message);
