@@ -34,6 +34,7 @@ async function checkWeather(cidade) {
 
     if (icones[data.clima]) {
         nuvemIcon.src = icones[data.clima];
+        document.querySelector(".clima").style.display = "block";
     }
     } catch (erro) {
     document.querySelector(".cidade").textContent = erro.message;
